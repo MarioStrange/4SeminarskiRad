@@ -1,0 +1,53 @@
+﻿@model IEnumerable<_4SeminarskiRad.Models.Course>
+
+@{
+    ViewBag.Title = "Predbilježba";
+}
+
+<h2>Predbilježba</h2>
+
+
+@using (Html.BeginForm("Index2", "Courses", FormMethod.Get))
+{
+    <p>
+        Pretraži: @Html.TextBox("search")
+        <input type="submit" value="Pretraži" />
+    </p>
+}
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CourseName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CourseDescription)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CourseDate)
+        </th>
+
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+<tr>
+
+    <td>
+        @Html.DisplayFor(modelItem => item.CourseName)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.CourseDescription)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.CourseDate)
+    </td>
+    <td>
+        @Html.ActionLink("Nova predbilježba", "Create", "Enrollments")
+    </td>
+
+</tr>
+    }
+
+</table>

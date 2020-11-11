@@ -1,0 +1,77 @@
+﻿@model IEnumerable<_4SeminarskiRad.Models.Enrollment>
+
+@{
+    ViewBag.Title = "Predbilježbe";
+}
+
+<h2>Predbilježbe</h2>
+
+<p>
+    @Html.ActionLink("Dodaj novu predbilježbu", "Create")
+</p>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Course.CourseName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EnrollmentDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EnrollmentFirstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EnrollmentLastName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EnrollmentAddress)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EnrollmentEmail)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EnrollmentPhone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EnrollmentAccepted)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Course.CourseName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EnrollmentDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EnrollmentFirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EnrollmentLastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EnrollmentAddress)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EnrollmentEmail)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EnrollmentPhone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EnrollmentAccepted)
+            </td>
+            <td>
+                @Html.ActionLink("Uredi", "Edit", new { id = item.EnrollmentId }) |
+                @Html.ActionLink("Detalji", "Details", new { id = item.EnrollmentId }) |
+                @Html.ActionLink("Izbriši", "Delete", new { id = item.EnrollmentId })
+            </td>
+        </tr>
+    }
+
+</table>

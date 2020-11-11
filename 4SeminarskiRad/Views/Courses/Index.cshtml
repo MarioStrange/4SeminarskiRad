@@ -1,0 +1,58 @@
+﻿@model IEnumerable<_4SeminarskiRad.Models.Course>
+
+@{
+    ViewBag.Title = "Seminari";
+}
+
+<h2>Seminari</h2>
+
+<p>
+    @Html.ActionLink("Dodaj novi seminar", "Create")
+</p>
+
+<p>
+    Ukupan broj trenutno predbilježenih polaznika: @ViewBag.NumberOfStudents
+</p>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CourseName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CourseDescription)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CourseDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CourseAvailable)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CourseName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CourseDescription)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CourseDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CourseAvailable)
+            </td>
+            <td>
+                @Html.ActionLink("Uredi", "Edit", new { id = item.CourseId }) |
+                @Html.ActionLink("Detalji", "Details", new { id = item.CourseId }) |
+                @Html.ActionLink("Izbriši", "Delete", new { id = item.CourseId })
+            </td>
+        </tr>
+    }
+
+</table>

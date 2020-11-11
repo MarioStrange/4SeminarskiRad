@@ -1,0 +1,56 @@
+﻿@model _4SeminarskiRad.Models.Employee
+
+@{
+    ViewBag.Title = "Izbriši";
+}
+
+<h2>Izbriši</h2>
+
+<h3>Jeste li sigurni da želite ovo izbrisati?</h3>
+<div>
+    <h4>Zaposlenik</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.EmployeeFirstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EmployeeFirstName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EmployeeLastName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EmployeeLastName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EmployeeUserName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EmployeeUserName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EmployeePassword)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EmployeePassword)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Izbriši" class="btn btn-default" /> |
+            @Html.ActionLink("Povratak", "Index")
+        </div>
+    }
+</div>

@@ -1,0 +1,51 @@
+﻿@model IEnumerable<_4SeminarskiRad.Models.Employee>
+
+@{
+    ViewBag.Title = "Popis zaposlenika";
+}
+
+<h2>Popis zaposlenika</h2>
+
+<p>
+    @Html.ActionLink("Dodaj novog zaposlenika", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.EmployeeFirstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EmployeeLastName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EmployeeUserName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EmployeePassword)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.EmployeeFirstName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EmployeeLastName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EmployeeUserName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EmployeePassword)
+        </td>
+        <td>
+            @Html.ActionLink("Uredi", "Edit", new { id=item.EmployeeId }) |
+            @Html.ActionLink("Detalji", "Details", new { id=item.EmployeeId }) |
+            @Html.ActionLink("Izbriši", "Delete", new { id=item.EmployeeId })
+        </td>
+    </tr>
+}
+
+</table>

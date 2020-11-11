@@ -1,0 +1,88 @@
+﻿@model _4SeminarskiRad.Models.Enrollment
+
+@{
+    ViewBag.Title = "Izbriši";
+}
+
+<h2>Izbriši</h2>
+
+<h3>Jeste li sigurni da želite ovo izbrisati?</h3>
+<div>
+    <h4>Predbilježba</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Course.CourseName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Course.CourseName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EnrollmentDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EnrollmentDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EnrollmentFirstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EnrollmentFirstName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EnrollmentLastName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EnrollmentLastName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EnrollmentAddress)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EnrollmentAddress)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EnrollmentEmail)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EnrollmentEmail)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EnrollmentPhone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EnrollmentPhone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EnrollmentAccepted)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EnrollmentAccepted)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Izbriši" class="btn btn-default" /> |
+            @Html.ActionLink("Povratak", "Index")
+        </div>
+    }
+</div>
